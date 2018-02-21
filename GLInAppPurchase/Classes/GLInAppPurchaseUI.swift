@@ -51,6 +51,8 @@ var purchaseButtonName:String = "BOOST ME"
 /// Default Cancel Button Title
 var cancelButtonName:String = "NO, THANKS"
 
+var footerDescription:String = "App Store Subscription Requirements"
+
 
 var bannerView:ContainerView!
 /// Gives user an option to change background style, Default style is .DarkStyle
@@ -83,11 +85,12 @@ let APP_DELEGATE = UIApplication.shared
      - Returns: A inilized GLNotificationBar object.
      */
     
-    @objc public init(title:String, subTitle:String, bannerBackGroundStyle:BackGroundStyle){
+    @objc public init(title:String, subTitle:String, footerText:String, bannerBackGroundStyle:BackGroundStyle){
         super.init()
         bannerTitle = title
         bannerSubTitle = subTitle
         backGroundStyle = bannerBackGroundStyle
+        footerDescription = footerText
     }
     
     /**
@@ -243,6 +246,7 @@ class ContainerView:UIView{
 //MARK: Outlet:
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var footerLabel: UILabel!
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var viewContainer: UIView!
@@ -433,6 +437,9 @@ class ContainerView:UIView{
         attributeString.addAttributes([NSFontAttributeName:UIFont.titleFont()], range: NSRange(location: 0, length: bannerTitle.characters.count))
         headerLabel.attributedText = attributeString
         headerLabel.textColor = bannerTitleColor
+        
+        footerLabel.text = footerDescription
+        
         titlContainer.applyGradient(bannerTheme, locations: [0,0.1], startPoint:nil, endPoint:nil)
     }
     
