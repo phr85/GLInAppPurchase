@@ -159,23 +159,21 @@
                         <constraint firstItem="jo3-es-56a" firstAttribute="top" secondItem="Sbb-r1-O3Y" secondAttribute="top" id="rph-HQ-kEu"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INP-8b-cKJ">
-                    <rect key="frame" x="16" y="596.5" width="343" height="50.5"/>
-                    <string key="text">Label
-d
-d</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INP-8b-cKJ">
+                    <rect key="frame" x="16" y="568" width="343" height="79"/>
+                    <mutableString key="text">When you purchase «Symptom Checker» subscription the amount is debited from your iTunes account; 24 hours before expiry of the current term, the account will be charged for an extension. After a purchase, you can unsubscribe from iTunes Store settings at any time. «Symptom Checker» subscription are currently available from $9.49/mth per year. The prices are in USD, may differ in countries outside USA, and price changes without prior notice are reserved. The current subscription can not be unsubscribed during the active subscription period. If you do not decide to purchase «Symptom Checker» subscription, you can use Dockti as usual with single diagnostic payment of $0.99 per diagnostic.</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="INP-8b-cKJ" secondAttribute="trailing" constant="16" id="AEK-Kx-31h"/>
+                <constraint firstItem="INP-8b-cKJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="9GP-7X-0ah"/>
                 <constraint firstItem="Sbb-r1-O3Y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Klm-6u-NMp"/>
-                <constraint firstAttribute="bottom" secondItem="INP-8b-cKJ" secondAttribute="bottom" constant="20" id="NGi-oY-AE8"/>
-                <constraint firstItem="INP-8b-cKJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Rrp-nJ-3he"/>
+                <constraint firstAttribute="trailing" secondItem="INP-8b-cKJ" secondAttribute="trailing" constant="16" id="b9D-hz-4kx"/>
                 <constraint firstItem="Sbb-r1-O3Y" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bd2-h0-DgW"/>
+                <constraint firstAttribute="bottom" secondItem="INP-8b-cKJ" secondAttribute="bottom" constant="20" id="kRe-2u-dyl"/>
             </constraints>
             <connections>
                 <outlet property="mainView" destination="-1" id="H8v-Ar-CaN"/>
