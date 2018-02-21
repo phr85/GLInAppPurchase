@@ -20,6 +20,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContainerView" customModule="GLInAppPurchase" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="aDQ-i1-K0e" id="pKD-7F-yAe"/>
+                <outlet property="footerLabel" destination="INP-8b-cKJ" id="esD-Dt-zZi"/>
                 <outlet property="headerLabel" destination="R3h-ev-wzV" id="y82-P2-uCw"/>
                 <outlet property="imageHeightConstraint" destination="3tN-yA-RoO" id="Phc-FL-bQQ"/>
                 <outlet property="imagePageControl" destination="oV0-OZ-SRM" id="efW-La-UEO"/>
