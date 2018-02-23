@@ -51,7 +51,7 @@ var purchaseButtonName:String = "BOOST ME"
 /// Default Cancel Button Title
 var cancelButtonName:String = "NO, THANKS"
 
-var footerDescription:NSAttributedString = "Recurring billing. Cancel any time. If you choose to purchase a subscription, payment will be chared to your iTunes account, and your account wil be charged within 24 hours pior to the end of the current period. Auto-renewal may be turned off at any time by going to your settings in the iTunes store after purchase. For more information, please visit our Term of Service and Privacy Policy."
+var footerDescription:NSAttributedString?
 
 var footerLink:String = "http://yourdomain.com/privacyPolice"
 
@@ -87,7 +87,7 @@ let APP_DELEGATE = UIApplication.shared
      - Returns: A inilized GLNotificationBar object.
      */
     
-    @objc public init(title:String, subTitle:String, footerText:NSAttributedString, link:String, bannerBackGroundStyle:BackGroundStyle){
+    @objc public init(title:String, subTitle:String, footerText:NSAttributedString?, link:String, bannerBackGroundStyle:BackGroundStyle){
         super.init()
         bannerTitle = title
         bannerSubTitle = subTitle
@@ -99,7 +99,7 @@ let APP_DELEGATE = UIApplication.shared
     /**
      Image content that to be displayed to user along with their description
      
-     - Parameter imageSetWithDescription:  
+     - Parameter imageSetWithDescription:
      - Add imags as `key` and their discription as `value`.
      - The discription can be seprated by **##** , First part will be considered as **Title**, Rest as **SubTitle**
      */
@@ -246,7 +246,7 @@ open class GLInAppAction : NSObject {
 
 
 class ContainerView:UIView{
-//MARK: Outlet:
+    //MARK: Outlet:
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
@@ -266,7 +266,7 @@ class ContainerView:UIView{
     var xPosition:CGFloat = 0.0
     
     var selctedOption:GLInAppAction!
-//MARK: Init:
+    //MARK: Init:
     ///Init banner view from nib
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -285,10 +285,10 @@ class ContainerView:UIView{
             .loadNibNamed("GLInAppPurchaseUI", owner:self, options:nil)
         guard let content = mainView else { return }
         content.frame = self.bounds
-//        content.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+        //        content.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         self.addSubview(content)
         
-         NotificationCenter.default.addObserver(self, selector: #selector(orientationChange(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChange(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     ///Setup all the UI Components
@@ -329,7 +329,7 @@ class ContainerView:UIView{
         }
         
         Timer.scheduledTimer(timeInterval: 2.0, target:self, selector: #selector(slideShowImages(_:)), userInfo: nil, repeats: true)
-
+        
         imagePageControl.numberOfPages = fullVersionFeatures_ImageSet.count
         imagePageControl.isHidden = fullVersionFeatures_ImageSet.count < 2 ? true : false
         imageScrollView.delegate = self
@@ -423,7 +423,7 @@ class ContainerView:UIView{
             viewContainer.clipsToBounds = true
             mainView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
             break
-        
+            
         default:
             viewContainer.layer.cornerRadius = 12.0
             viewContainer.clipsToBounds = true
@@ -441,8 +441,8 @@ class ContainerView:UIView{
         headerLabel.attributedText = attributeString
         headerLabel.textColor = bannerTitleColor
         
-        footerLabel.attributedText = footerDescription
-        let tapGesture = UITapGestureRecognizer.init(target: self, action: ContainerView.openFooterLink())
+        //footerLabel.attributedText = footerDescription
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.openFooterLink))
         footerLabel.addGestureRecognizer(tapGesture)
         footerLabel.isUserInteractionEnabled = true
         
@@ -461,7 +461,7 @@ class ContainerView:UIView{
         cancelButton.setTitle(cancelButtonName, for: UIControlState())
         
         
-
+        
         
     }
     
@@ -523,7 +523,7 @@ class ContainerView:UIView{
     }
     
     @IBAction func openFooterLink() {
-        UIApplication.shared.openURL(URL.init(string: footerLink))
+        UIApplication.shared.openURL(URL.init(string: footerLink)!)
     }
 }
 
@@ -537,7 +537,7 @@ extension ContainerView:UIScrollViewDelegate{
 }
 extension UIView {
     func applyGradient(_ colours: [UIColor],locations:[NSNumber]?, startPoint:CGPoint?, endPoint:CGPoint?) -> Void {
-
+        
         if (self.layer.sublayers != nil){  //Remove old layer.
             for subLayer in self.layer.sublayers! {
                 if subLayer is CAGradientLayer{
@@ -602,3 +602,4 @@ extension UIFont {
         return UIFont(name: "KohinoorDevanagari-Regular", size: 14)!
     }
 }
+
