@@ -51,7 +51,9 @@ var purchaseButtonName:String = "BOOST ME"
 /// Default Cancel Button Title
 var cancelButtonName:String = "NO, THANKS"
 
-var footerDescription:String = "App Store Subscription Requirements"
+var footerDescription:NSAttributedString = "Recurring billing. Cancel any time. If you choose to purchase a subscription, payment will be chared to your iTunes account, and your account wil be charged within 24 hours pior to the end of the current period. Auto-renewal may be turned off at any time by going to your settings in the iTunes store after purchase. For more information, please visit our Term of Service and Privacy Policy."
+
+var footerLink:String = "http://yourdomain.com/privacyPolice"
 
 
 var bannerView:ContainerView!
@@ -85,12 +87,13 @@ let APP_DELEGATE = UIApplication.shared
      - Returns: A inilized GLNotificationBar object.
      */
     
-    @objc public init(title:String, subTitle:String, footerText:String, bannerBackGroundStyle:BackGroundStyle){
+    @objc public init(title:String, subTitle:String, footerText:NSAttributedString, link:String, bannerBackGroundStyle:BackGroundStyle){
         super.init()
         bannerTitle = title
         bannerSubTitle = subTitle
         backGroundStyle = bannerBackGroundStyle
         footerDescription = footerText
+        footerLink = link
     }
     
     /**
@@ -438,7 +441,11 @@ class ContainerView:UIView{
         headerLabel.attributedText = attributeString
         headerLabel.textColor = bannerTitleColor
         
-        footerLabel.text = footerDescription
+        footerLabel.attributedText = footerDescription
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: ContainerView.openFooterLink())
+        footerLabel.addGestureRecognizer(tapGesture)
+        footerLabel.isUserInteractionEnabled = true
+        
         
         titlContainer.applyGradient(bannerTheme, locations: [0,0.1], startPoint:nil, endPoint:nil)
     }
@@ -452,6 +459,10 @@ class ContainerView:UIView{
         purchaseButton.applyGradient(buttonTheme, locations: nil, startPoint: CGPoint(x: 0.0, y: 0.5), endPoint: CGPoint(x: 1.0, y: 0.5))
         
         cancelButton.setTitle(cancelButtonName, for: UIControlState())
+        
+        
+
+        
     }
     
     ///Button action that used to detect tap on banner options
@@ -509,6 +520,10 @@ class ContainerView:UIView{
     @IBAction func cancelButton(_ sender:UIButton) {
         let check = selctedOption != nil ? true : false
         didSelectHandler!(cancelButtonName , check, check ? selctedOption : GLInAppAction())
+    }
+    
+    @IBAction func openFooterLink() {
+        UIApplication.shared.openURL(URL.init(string: footerLink))
     }
 }
 
