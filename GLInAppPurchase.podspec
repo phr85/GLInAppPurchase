@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'GLInAppPurchase'
-s.version          = '1.1.7'
+s.version          = '2.0.0'
 s.summary          = 'GLInAppPurchase allows user to use "Tinder InAppPurchase UI" in their App with minimal code.'
 
 # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ s.homepage         = 'https://github.com/gokulgovind/GLInAppPurchase'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'gokulgovind' => 'gokulece26@gmail.com' }
 s.source           = { :git => 'https://github.com/phr85/GLInAppPurchase.git', :tag => s.version.to_s }
-# s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+ s.social_media_url = 'https://twitter.com/philippe_h_r'
 
 s.ios.deployment_target = '8.0'
 
