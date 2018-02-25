@@ -51,8 +51,10 @@ var purchaseButtonName:String = "BOOST ME"
 /// Default Cancel Button Title
 var cancelButtonName:String = "NO, THANKS"
 
+/// Footer Text String, This Will Be Displayed On Bottom As AttributedString
 var footerDescription:NSAttributedString?
 
+/// Footer Action on touch, open the link : String (Agreements and / or Terms)
 var footerLink:String = "http://yourdomain.com/privacyPolice"
 
 
