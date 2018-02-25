@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'TIInAppPurchase'
-s.version          = '2.0.1'
+s.version          = '2.0.2'
 s.summary          = 'TIInAppPurchase allows user to use "Tinder InAppPurchase UI" in their App with minimal code.'
 
 # This description is used to generate tags and improve search results.
@@ -30,13 +30,8 @@ s.source           = { :git => 'https://github.com/phr85/TIInAppPurchase.git', :
 
 s.ios.deployment_target = '8.0'
 
-s.source_files = 'TIInAppPurchase/Classes/**/*'
+s.source_files = 'GLInAppPurchase/Classes/**/*'
 
-# s.resource_bundles = {
-# 'TIInAppPurchase' => ['TIInAppPurchase/TIInAppPurchase/Classes/*.xib']
-# }
-
-# s.public_header_files = 'Pod/Classes/**/*.h'
 s.frameworks = 'UIKit'
-# s.dependency 'AFNetworking', '~> 2.3'
+
 end
