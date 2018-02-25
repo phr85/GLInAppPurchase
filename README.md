@@ -1,4 +1,4 @@
-# TIInAppPurchaseSheet
+# GLInAppPurchase
 
 [![CI Status](http://img.shields.io/travis/gokulgovind/GLInAppPurchase.svg?style=flat)](https://travis-ci.org/gokulgovind/GLInAppPurchase)
 [![Version](https://img.shields.io/cocoapods/v/GLInAppPurchase.svg?style=flat)](http://cocoapods.org/pods/GLInAppPurchase)
@@ -77,10 +77,6 @@ appBanner.presentBanner()
 
 ## Author
 
-Philippe H. Regenass, info@treeinspired.com, https://treeinspired.com
-
-Original by:
-https://github.com/gokulgovind/GLInAppPurchase
 gokulgovind, gokulece26@gmail.com
 
 ## License
