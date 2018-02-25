@@ -21,7 +21,7 @@ s.description      = <<-DESC
 TIInAppPurchase is an open source library lets user to make use of Tinder styled inApp Purchase UI, It can also be used as alternative for UIAlertController.
 DESC
 
-s.homepage         = 'https://github.com/gokulgovind/TIInAppPurchase'
+s.homepage         = 'https://github.com/phr85/TIInAppPurchase'
 # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'Philippe H. Regenass' => 'philippe@regenass.name' }
