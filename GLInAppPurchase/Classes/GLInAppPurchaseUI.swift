@@ -441,7 +441,7 @@ class ContainerView:UIView{
         headerLabel.attributedText = attributeString
         headerLabel.textColor = bannerTitleColor
         
-        //footerLabel.attributedText = footerDescription
+        footerLabel.attributedText = footerDescription
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.openFooterLink))
         footerLabel.addGestureRecognizer(tapGesture)
         footerLabel.isUserInteractionEnabled = true

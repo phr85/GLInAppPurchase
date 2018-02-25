@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     func demo1() {
-        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", bannerBackGroundStyle: .transparentStyle)
+        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", bannerBackGroundStyle: .transparentStyle)
         
         appBanner.displayContent(imageSetWithDescription:
             [
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
     }
     
     func demo2() {
-        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", bannerBackGroundStyle: .transparentStyle)
+        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", bannerBackGroundStyle: .transparentStyle)
         
         appBanner.displayContent(imageSetWithDescription:
             [
@@ -112,7 +112,7 @@ class ViewController: UIViewController {
     }
     
     func demo3() {
-        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", bannerBackGroundStyle: .transparentStyle)
+        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: NSAttributedString.init(string: ""), link: "", bannerBackGroundStyle: .transparentStyle)
         
         
         appBanner.addButtonWith("BOOST ME", cancelTitle: "NO, THANKS") { (selectedTitle, isOptionSelected, selectedAction) in
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
     }
     
     func demo4() {
-        let appBanner = GLInAppPurchaseUI(title: "Demo 4", subTitle: "Be first in the queue", bannerBackGroundStyle: .transparentStyle)
+        let appBanner = GLInAppPurchaseUI(title: "Demo 4", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", bannerBackGroundStyle: .transparentStyle)
         
         appBanner.displayContent(imageSetWithDescription:
             [
@@ -172,6 +172,34 @@ class ViewController: UIViewController {
         
         appBanner.presentBanner()
     }
+    
+    // MARK: Helpers
+    
+    func footerText() -> NSAttributedString {
+        let mainString: NSMutableAttributedString = NSMutableAttributedString();
+        
+        let str1: NSMutableAttributedString = NSMutableAttributedString(string: "Recurring billing. Cancel any time.\n");
+        str1.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSMakeRange(0, str1.length));
+        let fonts1: UIFont? = UIFont.boldSystemFont(ofSize: 12)
+        str1.addAttribute(NSFontAttributeName, value: fonts1!, range: NSMakeRange(0, str1.length));
+
+        let str2: NSMutableAttributedString = NSMutableAttributedString(string: "If you choose to purchase a subscription, payment will be chared to your iTunes account, and your account wil be charged within 24 hours pior to the end of the current period. Auto-renewal may be turned off at any time by going to your settings in the iTunes store after purchase. For more information, please visit our");
+        str2.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSMakeRange(0, str2.length));
+        let fonts2: UIFont? = UIFont.systemFont(ofSize: 12)
+        str2.addAttribute(NSFontAttributeName, value: fonts2!, range: NSMakeRange(0, str2.length));
+        
+        let str3: NSMutableAttributedString = NSMutableAttributedString(string: " Term of Service and Privacy Policy.");
+        str3.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGray, range: NSMakeRange(0, str3.length));
+        let fonts3: UIFont? = UIFont.systemFont(ofSize: 12)
+        str3.addAttribute(NSFontAttributeName, value: fonts3!, range: NSMakeRange(0, str3.length));
+
+        mainString.append(str1)
+        mainString.append(str2)
+        mainString.append(str3)
+        
+        return mainString
+    }
+    
 }
 
 extension UIColor {
