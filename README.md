@@ -77,6 +77,10 @@ appBanner.presentBanner()
 
 ## Author
 
+Philippe H. Regenass, info@treeinspired.com
+
+Original by:
+https://github.com/gokulgovind/GLInAppPurchase
 gokulgovind, gokulece26@gmail.com
 
 ## License
