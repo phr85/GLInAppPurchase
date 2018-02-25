@@ -1,4 +1,4 @@
-# GLInAppPurchase
+# TIInAppPurchaseSheet
 
 [![CI Status](http://img.shields.io/travis/gokulgovind/GLInAppPurchase.svg?style=flat)](https://travis-ci.org/gokulgovind/GLInAppPurchase)
 [![Version](https://img.shields.io/cocoapods/v/GLInAppPurchase.svg?style=flat)](http://cocoapods.org/pods/GLInAppPurchase)
