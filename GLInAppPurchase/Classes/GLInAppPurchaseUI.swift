@@ -48,8 +48,13 @@ var fullVersionFeatures_ImageSet = [UIImage:String]()
 
 /// Default Purchase Button Title
 var purchaseButtonName:String = "BOOST ME"
+/// Default Alternative Button Title
+var alternativeButtonName:String = "GET SINGLE BOOST"
 /// Default Cancel Button Title
 var cancelButtonName:String = "NO, THANKS"
+
+/// Default Cancel Button Title
+var showAdvancedView:Bool = false
 
 /// Footer Text String, This Will Be Displayed On Bottom As AttributedString
 var footerDescription:NSAttributedString?
@@ -89,13 +94,14 @@ let APP_DELEGATE = UIApplication.shared
      - Returns: A inilized GLNotificationBar object.
      */
     
-    @objc public init(title:String, subTitle:String, footerText:NSAttributedString?, link:String, bannerBackGroundStyle:BackGroundStyle){
+    @objc public init(title:String, subTitle:String, footerText:NSAttributedString?, link:String, isAdvanced: Bool, bannerBackGroundStyle:BackGroundStyle){
         super.init()
         bannerTitle = title
         bannerSubTitle = subTitle
         backGroundStyle = bannerBackGroundStyle
         footerDescription = footerText
         footerLink = link
+        showAdvancedView = isAdvanced
     }
     
     /**
@@ -160,6 +166,23 @@ let APP_DELEGATE = UIApplication.shared
         cancelButtonName = cancelTitle
         didSelectHandler = completion
     }
+
+    /**
+     Helps in changing the **Okay and Cancel** button titles
+     
+     - Parameter okayTitle:  Set as title for okay button
+     
+     - Parameter cancelTitle:  Set as title for Cancel button
+     
+     - Returns: No return value.
+     */
+    @objc open func addButtonWith(_ okayTitle:String,alternativeTitle:String,cancelTitle:String,completion:@escaping ((_ selectedTitle:String, _ isOptionSelected:Bool, _ selectedAction:GLInAppAction) -> Void)){
+        purchaseButtonName = okayTitle
+        alternativeButtonName = alternativeTitle
+        cancelButtonName = cancelTitle
+        didSelectHandler = completion
+    }
+    
     
     /// Presents the banner on top of all views
     @objc open func presentBanner() {
@@ -253,6 +276,7 @@ class ContainerView:UIView{
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
     @IBOutlet weak var purchaseButton: UIButton!
+    @IBOutlet weak var alternativeButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var titlContainer: UIView!
@@ -272,7 +296,7 @@ class ContainerView:UIView{
     ///Init banner view from nib
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        commonInit(advanced: showAdvancedView)
         setUpUIComponents()
     }
     
@@ -282,9 +306,15 @@ class ContainerView:UIView{
     }
     
     ///Init banner view from nib
-    fileprivate func commonInit() {
-        Bundle(for: ContainerView.self)
-            .loadNibNamed("GLInAppPurchaseUI", owner:self, options:nil)
+    fileprivate func commonInit(advanced:Bool) {
+        if (advanced) {
+            Bundle(for: ContainerView.self)
+                .loadNibNamed("GLInAppPurchaseUIExtended", owner:self, options:nil)
+        } else {
+            Bundle(for: ContainerView.self)
+                .loadNibNamed("GLInAppPurchaseUI", owner:self, options:nil)
+        }
+
         guard let content = mainView else { return }
         content.frame = self.bounds
         //        content.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
@@ -459,12 +489,8 @@ class ContainerView:UIView{
         purchaseButton.setTitle(purchaseButtonName, for: UIControlState())
         purchaseButton.setTitleColor(buttonTitleColor, for: UIControlState())
         purchaseButton.applyGradient(buttonTheme, locations: nil, startPoint: CGPoint(x: 0.0, y: 0.5), endPoint: CGPoint(x: 1.0, y: 0.5))
-        
+        alternativeButton.setTitle(alternativeButtonName, for: UIControlState())
         cancelButton.setTitle(cancelButtonName, for: UIControlState())
-        
-        
-        
-        
     }
     
     ///Button action that used to detect tap on banner options
@@ -517,6 +543,11 @@ class ContainerView:UIView{
     @IBAction func okayButton(_ sender:UIButton) {
         let check = selctedOption != nil ? true : false
         didSelectHandler!(purchaseButtonName , check, check ? selctedOption : GLInAppAction())
+    }
+
+    @IBAction func alternativeButton(_ sender:UIButton) {
+        let check = selctedOption != nil ? true : false
+        didSelectHandler!(alternativeButtonName , check, check ? selctedOption : GLInAppAction())
     }
     
     @IBAction func cancelButton(_ sender:UIButton) {

@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     func demo1() {
-        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", bannerBackGroundStyle: .transparentStyle)
+        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", isAdvanced: true, bannerBackGroundStyle: .transparentStyle)
         
         appBanner.displayContent(imageSetWithDescription:
             [
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
     }
     
     func demo2() {
-        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", bannerBackGroundStyle: .transparentStyle)
+        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", isAdvanced: false, bannerBackGroundStyle: .transparentStyle)
         
         appBanner.displayContent(imageSetWithDescription:
             [
@@ -112,7 +112,7 @@ class ViewController: UIViewController {
     }
     
     func demo3() {
-        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: NSAttributedString.init(string: ""), link: "", bannerBackGroundStyle: .transparentStyle)
+        let appBanner = GLInAppPurchaseUI(title: "Skip The Line", subTitle: "Be first in the queue", footerText: NSAttributedString.init(string: ""), link: "", isAdvanced: false, bannerBackGroundStyle: .transparentStyle)
         
         
         appBanner.addButtonWith("BOOST ME", cancelTitle: "NO, THANKS") { (selectedTitle, isOptionSelected, selectedAction) in
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
     }
     
     func demo4() {
-        let appBanner = GLInAppPurchaseUI(title: "Demo 4", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", bannerBackGroundStyle: .transparentStyle)
+        let appBanner = GLInAppPurchaseUI(title: "Demo 4", subTitle: "Be first in the queue", footerText: footerText(), link: "http://yourdomain.com/term", isAdvanced: false, bannerBackGroundStyle: .transparentStyle)
         
         appBanner.displayContent(imageSetWithDescription:
             [
