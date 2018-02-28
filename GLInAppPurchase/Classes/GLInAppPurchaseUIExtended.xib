@@ -131,7 +131,7 @@ Cg
                             <color key="backgroundColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skip The Line" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3h-ev-wzV">
-                            <rect key="frame" x="8" y="12" width="244" height="18"/>
+                            <rect key="frame" x="8" y="12" width="327" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="sfL-cb-gD9"/>
                             </constraints>
@@ -254,7 +254,7 @@ Cg
                     <color key="backgroundColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="mjK-4G-EEJ" secondAttribute="trailing" id="3X0-Mb-RF8"/>
-                        <constraint firstAttribute="trailing" secondItem="R3h-ev-wzV" secondAttribute="trailing" constant="91" id="3a1-Xb-uMK"/>
+                        <constraint firstAttribute="trailing" secondItem="R3h-ev-wzV" secondAttribute="trailing" constant="8" id="3a1-Xb-uMK"/>
                         <constraint firstItem="mjK-4G-EEJ" firstAttribute="leading" secondItem="Sbb-r1-O3Y" secondAttribute="leading" id="680-bj-FP5"/>
                         <constraint firstAttribute="bottom" secondItem="mjK-4G-EEJ" secondAttribute="bottom" constant="-46" id="9NF-LO-bLs"/>
                         <constraint firstItem="R3h-ev-wzV" firstAttribute="top" secondItem="Sbb-r1-O3Y" secondAttribute="top" constant="12" id="9lQ-Pb-G3N"/>
