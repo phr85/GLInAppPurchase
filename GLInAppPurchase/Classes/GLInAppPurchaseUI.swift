@@ -496,6 +496,11 @@ class ContainerView:UIView{
         purchaseButton.applyGradient(buttonTheme, locations: nil, startPoint: CGPoint(x: 0.0, y: 0.5), endPoint: CGPoint(x: 1.0, y: 0.5))
         if (isAdvanced) {
             alternativeButton.setTitle(alternativeButtonName, for: UIControlState())
+            alternativeButton.layer.cornerRadius = 14.0
+            alternativeButton.layer.borderWidth = 2.0
+            alternativeButton.layer.borderColor = buttonTheme[0].cgColor
+            alternativeButton.layer.backgroundColor = UIColor.white.cgColor
+            alternativeButton.setTitleColor(buttonTheme[0], for: UIControlState())
         }
         cancelButton.setTitle(cancelButtonName, for: UIControlState())
     }
