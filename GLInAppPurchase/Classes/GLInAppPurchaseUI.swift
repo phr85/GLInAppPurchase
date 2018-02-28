@@ -30,6 +30,10 @@ import UIKit
     case transparentStyle
 }
 
+/// IS Advanced Sheet
+var isAdvanced: Bool = false
+
+
 /// Default Banner Theme Color
 var bannerTheme = [UIColor(netHex:0x702EBE), UIColor(netHex:0xB635F5)]
 /// Default Banner Title Color
@@ -307,6 +311,7 @@ class ContainerView:UIView{
     
     ///Init banner view from nib
     fileprivate func commonInit(advanced:Bool) {
+        isAdvanced = advanced
         if (advanced) {
             Bundle(for: ContainerView.self)
                 .loadNibNamed("GLInAppPurchaseUIExtended", owner:self, options:nil)
@@ -489,7 +494,9 @@ class ContainerView:UIView{
         purchaseButton.setTitle(purchaseButtonName, for: UIControlState())
         purchaseButton.setTitleColor(buttonTitleColor, for: UIControlState())
         purchaseButton.applyGradient(buttonTheme, locations: nil, startPoint: CGPoint(x: 0.0, y: 0.5), endPoint: CGPoint(x: 1.0, y: 0.5))
-        alternativeButton.setTitle(alternativeButtonName, for: UIControlState())
+        if (isAdvanced) {
+            alternativeButton.setTitle(alternativeButtonName, for: UIControlState())
+        }
         cancelButton.setTitle(cancelButtonName, for: UIControlState())
     }
     
