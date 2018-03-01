@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'GLInAppPurchase'
-s.version          = '2.0.4'
+s.version          = '2.0.5'
 s.summary          = 'GLInAppPurchase allows user to use "Tinder InAppPurchase UI" in their App with minimal code.'
 
 # This description is used to generate tags and improve search results.
